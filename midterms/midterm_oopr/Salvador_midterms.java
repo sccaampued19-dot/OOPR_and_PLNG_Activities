@@ -203,7 +203,7 @@ public class Salvador_midterms {
         System.out.print("Enter poss. of Element to Delete: ");
         int position = input.nextInt();
 
-        if (position < 1 || position > numbers.length) {
+        if (position < 0 || position > numbers.length) {
             System.out.println("Invalid position.");
             return;
         }
@@ -211,7 +211,7 @@ public class Salvador_midterms {
         int[] newArray = new int[numbers.length - 1];
 
         for (int i = 0, j = 0; i < numbers.length; i++) {
-            if (i != position - 1) {
+            if (i != position) {
                 newArray[j] = numbers[i];
                 j++;
             }
@@ -277,7 +277,7 @@ public class Salvador_midterms {
         student1.setStudentNo(input.nextLine());
         System.out.print("Enter Student Name: ");
         student1.setStudentName(input.nextLine());
-        System.out.print("Enter Date of Birth (MM/dd/yyyy): ");
+        System.out.print("Enter Date of Birth (dd/mm/yyyy): ");
         student1.setDateOfBirth(input.nextLine());
    
         System.out.println("\n--- Enter details for Student 2 ---");
@@ -285,10 +285,13 @@ public class Salvador_midterms {
         String s2No = input.nextLine();
         System.out.print("Enter Student Name: ");
         String s2Name = input.nextLine();
-        System.out.print("Enter Date of Birth (MM/dd/yyyy): ");
+        System.out.print("Enter Date of Birth (dd/mm/yyyy): ");
         String s2Dob = input.nextLine();
-     
-        Student student2 = new Student(s2No, s2Name, s2Dob, 150);
+        
+        // Formula: (Math.random() * (Max - Min + 1)) + Min
+        int randomPoints = (int)(Math.random() * (280 - 20 + 1)) + 20;
+
+        Student student2 = new Student(s2No, s2Name, s2Dob, randomPoints);
 
         System.out.println("\n===== Student 1 =====");
         System.out.println("Student No: " + student1.getStudentNo());
@@ -308,7 +311,7 @@ public class Salvador_midterms {
     public static void program7() {
         System.out.println("\nPROGRAM 7");
 
-        File file = new File("C:\\Users\\SBH-CL5-WS01\\Documents\\lunato.txt");
+        File file = new File("C:\\Users\\SBH-CL3-WS01\\Desktop\\oopr.txt");
         try (Scanner reader = new Scanner(file)) {
             while (reader.hasNextLine()) {
                 String data = reader.nextLine(); // Fixed: changed File to String
