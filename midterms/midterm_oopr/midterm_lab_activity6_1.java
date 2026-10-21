@@ -93,7 +93,7 @@ public class midterm_lab_activity6_1 {
                             scanner.next(); 
                         }
                     }
-                    System.out.printf("Your current balance is: %.0f\n", account.getBalance());
+                    System.out.printf("Your current balance is: %.2f\n", account.getBalance());
                     break;
 
                 case 2: //deposit
@@ -114,7 +114,7 @@ public class midterm_lab_activity6_1 {
                             scanner.next(); 
                         }
                     }
-                    System.out.printf("Your current balance is: %.0f\n", account.getBalance());
+                    System.out.printf("Your current balance is: %.2f\n", account.getBalance());
                     break;
 
                 case 3: //exit
