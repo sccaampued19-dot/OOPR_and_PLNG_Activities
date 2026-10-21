@@ -3,14 +3,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class midterm_lab_activity6_2 {
-    
-    // FIXED: Added static to the nested classes so they can be referenced inside the static main method
-    // e) Class structure to store the date (year, month, and date as its members)
     static class Date {
         int year;
         int month;
         int day;
-
+        
+        //constructor
         public Date(int year, int month, int day) {
             this.year = year;
             this.month = month;
@@ -23,15 +21,12 @@ public class midterm_lab_activity6_2 {
         }
     }
 
-    // FIXED: Added static
-    // Base class to store basic information
     static class PatientBase {
         protected String name;
         protected Date admissionDate;
         protected String disease;
         protected Date dischargeDate;
 
-        // Member function to enter information
         public void enterInfo(Scanner scanner) {
             System.out.print("1. Name of the patient: ");
             name = scanner.nextLine();
@@ -44,7 +39,7 @@ public class midterm_lab_activity6_2 {
             System.out.print("   Enter Day: ");
             int ad = scanner.nextInt();
             admissionDate = new Date(ay, am, ad);
-            scanner.nextLine(); // clear buffer
+            scanner.nextLine(); 
 
             System.out.print("3. Disease: ");
             disease = scanner.nextLine();
@@ -57,10 +52,9 @@ public class midterm_lab_activity6_2 {
             System.out.print("   Enter Day: ");
             int dd = scanner.nextInt();
             dischargeDate = new Date(dy, dm, dd);
-            scanner.nextLine(); // clear buffer
+            scanner.nextLine(); 
         }
 
-        // Member function to display information
         public void displayInfo() {
             System.out.println("Patient Name: " + name);
             System.out.println("Date of Admission: " + admissionDate);
@@ -69,21 +63,17 @@ public class midterm_lab_activity6_2 {
         }
     }
 
-    // FIXED: Added static
-    // Derived class to store the age of the patients
     static class Patient extends PatientBase {
         private int age;
 
-        // Overridden method to capture extra information
         @Override
         public void enterInfo(Scanner scanner) {
             super.enterInfo(scanner);
             System.out.print("5. Age: ");
             age = scanner.nextInt();
-            scanner.nextLine(); // clear buffer
+            scanner.nextLine();
         }
 
-        // Overridden method to display age
         @Override
         public void displayInfo() {
             super.displayInfo();
@@ -96,15 +86,13 @@ public class midterm_lab_activity6_2 {
         }
     }
 
-    // FIXED: Removed the 'public class HospitalDatabase' wrapper class layer 
-    // so Maven can find the main method natively at the file level.
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Patient> database = new ArrayList<>();
         int choice;
 
         do {
-            System.out.println("\nOUTPUT IN ACTIVITY 2");
+            System.out.println("\n");
             System.out.println("1. Insert New Patient");
             System.out.println("2. Display all Patient");
             System.out.println("3. Display pediatric patient");
@@ -117,7 +105,7 @@ public class midterm_lab_activity6_2 {
                 System.out.print("Enter choice: ");
             }
             choice = scanner.nextInt();
-            scanner.nextLine(); // clear buffer
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -128,7 +116,7 @@ public class midterm_lab_activity6_2 {
                     break;
 
                 case 2:
-                    System.out.println("\n--- All Patients ---");
+                    System.out.println("\nAll Patients:");
                     if (database.isEmpty()) {
                         System.out.println("No records found.");
                     } else {
@@ -139,7 +127,7 @@ public class midterm_lab_activity6_2 {
                     break;
 
                 case 3:
-                    System.out.println("\n--- Pediatric Patients (Less than 12 Years) ---");
+                    System.out.println("\nPediatric Patients (Less than 12 Years) ");
                     boolean foundPediatric = false;
                     for (Patient patient : database) {
                         if (patient.getAge() < 12) {
