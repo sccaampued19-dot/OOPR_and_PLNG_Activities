@@ -7,39 +7,31 @@ public class midterm_lab_activity2_10 {
         String answer;
         
         do {
-            int i = 1;
-                    
-            System.out.print("\nEnter a number to be squared: ");
+            System.out.print("Enter a grade number: ");
             int num = scanner.nextInt();
-            
-            System.out.println("\nMAIN MENU");
-            System.out.println("[1] For Loop");
-            System.out.println("[2] While Loop");
-            System.out.println("[3] Do-While Loop");
-            System.out.print("Enter loop to be used: ");
-            int loop = scanner.nextInt();
-            System.out.print("\n");
-            switch (loop){
-                case 1:
-                    for (; i <= num; i++){
-                        System.out.println(i + "\t" + i*i);
-                    }
-                    break;
-                case 2:
-                    while (i <= num){
-                        System.out.println(i + "\t" + i*i);
-                        i++;
-                    }
-                    break;
-                case 3:
-                    do {
-                        System.out.println(i + "\t" + i*i);
-                        i++;
-                    } while (i <= num);
-                    break;
-                default:
-                    System.out.println("\nInvalid number entered! Choose only from 1, 2, or 3.");
-                    break;
+ 
+            if (num > 100) {
+                System.out.println("Out of Range");
+            } else if (num >= 98){  
+                System.out.println("1.00");
+            } else if (num >= 95){  
+                System.out.println("1.25");
+            } else if (num >= 92){  
+                System.out.println("1.50");
+            } else if (num >= 89){  
+                System.out.println("1.75");
+            } else if (num >= 85){  
+                System.out.println("2.00");
+            } else if (num >= 82){  
+                System.out.println("2.25");
+            } else if (num >= 80){ 
+                System.out.println("2.50");
+            } else if (num >= 77){ 
+                System.out.println("2.75");
+            } else if (num >= 75){ 
+                System.out.println("3.00");
+            } else {               
+                System.out.println("Out of Range");
             }
             
             System.out.print("\nDo you want to enter another number? (yes/no): ");
